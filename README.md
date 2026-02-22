@@ -1,3 +1,268 @@
+# 🚀 Extended Version: Code Learning Assistant
+
+This project extends the original hackathon starter template with:
+- Error Explainer
+- Hint Mode
+- Code Playground
+- Smart Chat
+- Voice Input
+- Learning History
+
+
+🚀 Code Learning Assistant
+
+An AI-Powered React Native App for Learning Programming Smarter
+
+A full-featured AI coding assistant built with React Native + On-Device LLM (RunAnywhere) that helps users:
+
+🐛 Explain errors (Simple & Technical mode)
+
+💡 Learn step-by-step using Hint Mode
+
+💬 Chat with contextual memory
+
+⚡ Run JavaScript & Python code
+
+🎤 Use voice input
+
+🔊 Listen to AI explanations
+
+📚 Track learning history & progress
+
+📱 Features
+🐛 Error Explainer
+
+Paste any programming error
+
+Choose:
+
+👶 Simple explanation (Beginner-friendly)
+
+🔧 Technical explanation (Detailed analysis)
+
+Syntax-highlighted code responses
+
+Voice input support
+
+Text-to-Speech output
+
+Saves explanations to history
+
+💡 Hint Mode (Step-by-Step Learning)
+
+Structured 4-step learning approach:
+
+💡 Strategy Hint
+
+📝 Pseudocode
+
+💻 Partial Code
+
+✅ Full Solution
+
+✔ Cannot skip steps
+✔ Progress bar tracking
+✔ “Try This Code” button
+✔ Save completed solutions
+
+⚡ Code Playground
+
+Supports:
+
+JavaScript execution (safe sandbox)
+
+Python execution (native bridge ready)
+
+Console output capture
+
+Execution time tracking
+
+Sample programs
+
+Error handling
+
+Clear & Run controls
+
+💬 Smart Chat
+
+Context-aware AI chat
+
+Continues from:
+
+Error explanations
+
+Hint mode
+
+Supports code formatting
+
+Syntax highlighting
+
+Voice input
+
+🎤 Voice & TTS
+
+Speech-to-text input
+
+Text-to-speech explanation playback
+
+Hands-free learning experience
+
+📚 Learning History
+
+Tracks:
+
+Errors explained
+
+Hints completed
+
+Solutions viewed
+
+View full past responses
+
+Delete entries
+
+Pull-to-refresh
+
+Statistics overview
+
+🛠 Tech Stack
+Frontend
+
+React Native (CLI)
+
+TypeScript
+
+React Navigation (Bottom Tabs)
+
+Custom Hooks Architecture
+
+AI & LLM
+
+RunAnywhere (On-device LLM inference)
+
+Streaming token responses
+
+Context-based conversation system
+
+Code Rendering
+
+react-native-syntax-highlighter
+
+Custom code parser
+
+Copy-to-clipboard
+
+Native Features
+
+Microphone (react-native-live-audio-stream)
+
+Clipboard API
+
+Native module bridge (ExecutionEngine)
+
+Android native integration
+
+🏗 Architecture
+src/
+ ├── components/
+ ├── screens/
+ ├── hooks/
+ ├── services/
+ ├── navigation/
+ ├── utils/
+ └── types/
+
+Modular design:
+
+Hooks handle business logic
+
+Screens handle UI
+
+Services manage execution + AI
+
+Components are reusable
+
+🔐 Safety Features
+
+JavaScript execution sandbox
+
+Dangerous pattern detection
+
+Timeout protection (5s max execution)
+
+Safe console output capturing
+
+🚀 Getting Started
+1️⃣ Clone
+git clone https://github.com/YOUR_USERNAME/react-native-starter-app.git
+cd react-native-starter-app
+2️⃣ Install Dependencies
+npm install
+3️⃣ Clean Android Build (Recommended)
+cd android
+./gradlew clean
+cd ..
+4️⃣ Run App
+npx react-native run-android
+📈 Why This Project Matters
+
+This project demonstrates:
+
+Real-world React Native architecture
+
+AI integration in mobile apps
+
+Native module integration
+
+Code execution sandboxing
+
+Streaming LLM responses
+
+TypeScript usage
+
+Complex state management
+
+UX-focused learning design
+
+🎯 Ideal Use Cases
+
+Coding beginners
+
+Interview preparation
+
+Debugging practice
+
+Self-paced learning
+
+AI-assisted development
+
+🧠 Future Improvements
+
+Monaco editor integration
+
+Cloud execution environment
+
+Multi-language expansion
+
+User authentication
+
+Cloud sync history
+
+iOS Python execution
+
+👨‍💻 Authors
+BUG SLAYERS
+B.Tech CSE | AI + Full Stack Enthusiasts
+Focused on building intelligent developer tools.
+
+⭐ If you found this interesting, feel free to star the repo!
+
+
+
+
+
+
+
 # RunAnywhere React Native Starter App
 
 A comprehensive starter app demonstrating the capabilities of the [RunAnywhere SDK](https://www.npmjs.com/org/runanywhere) - a privacy-first, on-device AI SDK for React Native.
