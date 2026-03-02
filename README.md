@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# 🚀 Extended Version: Code Learning Assistant
+🚀 Code Learning Assistant
 
 This project extends the original hackathon starter template with:
 - Error Explainer
@@ -9,9 +8,6 @@ This project extends the original hackathon starter template with:
 - Voice Input
 - Learning History
 
-
-
----
 
 # 🚀 Code Learning Assistant
 
