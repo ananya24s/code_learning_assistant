@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 Extended Version: Code Learning Assistant
 
 This project extends the original hackathon starter template with:
@@ -648,3 +649,6 @@ Special thanks to the open-source community and the RunAnywhere team!
 ---
 
 Made with ❤️ by the RunAnywhere team
+=======
+# code_learning_assistant
+>>>>>>> 3fe958c854a1e749939b0a4077d1addfd6e409e0
