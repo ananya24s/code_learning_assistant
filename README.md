@@ -153,7 +153,7 @@ src/
 
 ## Run it locally (Android)
 
-**Prerequisites:** Node.js 18+, JDK 17, Android Studio with Android SDK 36 and NDK `27.1.12297006`. A physical device is recommended, because the AI model runs slowly on emulators.
+**Prerequisites:** Node.js 18+, JDK 17, Android Studio with Android SDK 36 and NDK `29.0.14206865`. A physical device is recommended, because the AI model runs slowly on emulators.
 
 ```bash
 git clone https://github.com/ananya24s/code_learning_assistant.git
