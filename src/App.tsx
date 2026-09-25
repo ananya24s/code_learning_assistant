@@ -58,6 +58,7 @@ const App: React.FC = () => {
         <StatusBar barStyle="light-content" backgroundColor={AppColors.primaryDark} />
         <NavigationContainer>
           <Stack.Navigator
+            initialRouteName="LearningAssistant"
             screenOptions={{
               headerStyle: {
                 backgroundColor: AppColors.primaryDark,
