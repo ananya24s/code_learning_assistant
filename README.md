@@ -1,650 +1,190 @@
-🚀 Code Learning Assistant
+# Code Learning Assistant
 
-This project extends the original hackathon starter template with:
-- Error Explainer
-- Hint Mode
-- Code Playground
-- Smart Chat
-- Voice Input
-- Learning History
+**An offline AI coding tutor that teaches you to think, not just copy answers.**
 
+Code Learning Assistant is a React Native app that helps beginners understand errors, solve problems step by step, and practise code on their phone. The AI model runs entirely on the device. After a one-time model download, the app needs no internet, costs nothing per question, and never sends your code anywhere.
 
-# 🚀 Code Learning Assistant
+Built by **Team Bug Slayers** for **Horizon by Hoollow**, theme *AI with Education*.
 
-### On-Device AI Powered Coding Companion (React Native)
-
-An advanced **on-device AI coding assistant** built with React Native and RunAnywhere SDK.
-The app helps developers understand errors, solve problems step-by-step, execute code, and interact with AI — all **without requiring internet access**.
+<p align="center">
+  <img src="docs/screenshots/error-helper.png" width="190" alt="Error Helper" />
+  <img src="docs/screenshots/hint-mode-steps.png" width="190" alt="Hint Mode" />
+  <img src="docs/screenshots/playground.png" width="190" alt="Code Playground" />
+  <img src="docs/screenshots/history.png" width="190" alt="Learning History" />
+</p>
 
 ---
 
-## 📱 Features
+## The problem
 
-### 🐛 Error Explainer
+- **Errors are hard to read.** A message like `TypeError: Cannot read property 'length' of undefined` means nothing to a beginner.
+- **AI chatbots give away the answer.** Students copy the full solution and learn nothing about how to solve the problem.
+- **Cloud AI isn't available to everyone.** It needs a stable connection and paid APIs, and it sends your code to a server.
+- **Many students learn on a phone.** Most coding tools are built for laptops.
 
-* Paste programming errors
-* Choose between **Simple** or **Technical** explanations
-* Supports multiple programming languages
-* Voice input support
-* Text-to-Speech explanation playback
-* Saves explanations to learning history
+## Our approach
 
----
-
-### 💡 Hint Mode (Step-by-Step Learning)
-
-* Guided 4-step hint system:
-
-  1. Strategy Hint
-  2. Pseudocode
-  3. Partial Code
-  4. Full Solution
-* Locked progression (no skipping)
-* Visual progress bar
-* "Try This Code" button to open solution in Playground
-* Saves completed sessions to history
+A good teacher doesn't give you the answer. They give you the next hint. Every feature in the app is built around that idea.
 
 ---
 
-### 💬 Smart Chat
+## Features
 
-* Context-aware AI chat
-* Continue from Error Explainer or Hint Mode
-* Code block detection & syntax highlighting
-* Voice input support
-* Fully on-device inference
+### 🐛 Error Helper
 
----
+<img src="docs/screenshots/error-helper.png" width="220" align="right" alt="Error Helper screen" />
+
+- Paste an error, or say it out loud with voice input
+- Pick the language: JavaScript, Python, Java, C++, C#, Go, Rust, SQL, PHP
+- **Simple mode** gives a beginner-friendly explanation; **Technical mode** gives a deeper root-cause analysis
+- Listen to the explanation with text-to-speech
+- Every explanation is saved to your learning history
+
+<br clear="right" />
+
+### 💡 Hint Mode: learn step by step
+
+<p>
+  <img src="docs/screenshots/hint-mode-start.png" width="220" alt="Describe a problem in Hint Mode" />
+  <img src="docs/screenshots/hint-mode-steps.png" width="220" alt="Hint Mode progress" />
+</p>
+
+Describe a coding problem (typed or spoken), and the AI helps in four locked steps:
+
+1. **Strategy:** which approach to think about
+2. **Pseudocode:** the logic in plain steps
+3. **Partial code:** a skeleton for you to finish
+4. **Full solution:** unlocked only after steps 1–3
+
+You can't skip ahead, so you have to think at each step. The final code opens straight in the Playground with **Try This Code**.
 
 ### ⚡ Code Playground
 
-* JavaScript execution engine (safe sandboxed execution)
-* Python execution support (via native module)
-* Sample code templates
-* Output console with execution time
-* Error handling display
+<img src="docs/screenshots/playground.png" width="220" align="right" alt="Code Playground screen" />
 
----
+- Write and run **JavaScript** on the phone in a sandboxed engine
+- Output console with execution time and clear error display
+- Starter templates such as Hello World
+
+<br clear="right" />
+
+### 💬 Ask AI
+
+<img src="docs/screenshots/ask-ai.png" width="220" align="right" alt="Ask AI screen" />
+
+- Chat about any coding question, typed or spoken
+- Carries context over from Error Helper and Hint Mode
+- Detects code blocks in replies and highlights the syntax
+
+<br clear="right" />
 
 ### 📚 Learning History
 
-* Stores all:
+<img src="docs/screenshots/history.png" width="220" align="right" alt="Learning History screen" />
 
-  * Error explanations
-  * Hint sessions
-  * AI interactions
-* Displays:
+- Stats: total questions, errors explained, problems solved
+- **Common topics** (such as `null`, `undefined`, arrays) show what to practise next
+- Tap any past item to review it; delete items or clear all
+- Stored only on your phone
 
-  * Total queries
-  * Errors explained
-  * Problems solved
-  * Common topics
-* Tap to view full details
-* Delete individual items
-* Pull-to-refresh support
+<br clear="right" />
 
 ---
 
-## 🔥 On-Device AI Advantages
+## Why on-device AI
 
-This app demonstrates the power of **on-device AI**:
+| | Typical AI chatbot | Code Learning Assistant |
+|---|---|---|
+| Internet | Always required | Only once, to download the model |
+| Cost per question | Paid API or subscription | ₹0 |
+| Your code | Sent to a cloud server | Never leaves the device |
+| Teaching style | Gives the full answer | Hints in 4 locked steps |
+| Explanation level | One size fits all | Simple or Technical |
 
-* ✅ No internet required
-* ✅ Zero API cost
-* ✅ Low latency responses
-* ✅ Complete data privacy
-* ✅ Secure local execution
-* ✅ Works offline
-
-All AI inference runs locally using the RunAnywhere SDK.
-
----
-
-## 🛠 Tech Stack
-
-* React Native (TypeScript)
-* RunAnywhere SDK (On-device LLM)
-* React Navigation (Stack + Tabs)
-* Native Modules (Python execution)
-* Custom Code Parser for code block detection
-* Syntax Highlighting
-* Voice Input (Audio Streaming)
-* Text-to-Speech
-* Safe JavaScript Execution Engine
-
----
-
-## 🧠 Architecture Overview
+## How it works
 
 ```
-User Input
-   ↓
-On-Device LLM (RunAnywhere)
-   ↓
-Response Parser (Code Block Detection)
-   ↓
-UI Rendering (FormattedResponse + CodeBlock)
-   ↓
-Optional: Run in Playground
+Text or voice input
+   │   (voice → Whisper speech-to-text, on device)
+   ▼
+Prompt builder  ── Simple / Technical / hint-step prompts
+   ▼
+On-device LLM   ── LiquidAI LFM2-350M (Q8) on llama.cpp, via RunAnywhere SDK
+   ▼
+Response parser ── detects code blocks, highlights syntax
+   ▼
+UI  ·  Text-to-speech (Piper)  ·  Code Playground
+   │
+   └─ Local storage (AsyncStorage): history, stats, chat context
 ```
 
-All processing happens locally on device.
+| Model | Purpose |
+|---|---|
+| `lfm2-350m-q8_0` | Language model for explanations, hints and chat |
+| `sherpa-onnx-whisper-tiny.en` | Speech-to-text |
+| `vits-piper-en_US-lessac-medium` | Text-to-speech |
 
----
+Models are downloaded once, from inside the app, the first time you use each feature. After that, everything runs offline.
 
-## 📂 Project Structure
+## Tech stack
+
+- React Native 0.83 (TypeScript)
+- [RunAnywhere SDK](https://www.npmjs.com/org/runanywhere): `@runanywhere/core`, `@runanywhere/llamacpp`, `@runanywhere/onnx`
+- React Navigation (stack and bottom tabs)
+- AsyncStorage for local history
+- `react-native-live-audio-stream` for voice input, `react-native-sound` for playback
+- `react-native-syntax-highlighter` for code blocks
+
+## Project structure
 
 ```
 src/
- ├── components/
- │    ├── CodeBlock.tsx
- │    ├── FormattedResponse.tsx
- │    ├── VoiceButton.tsx
- │    └── SpeakerButton.tsx
- │
- ├── screens/
- │    ├── ErrorExplainerScreen.tsx
- │    ├── HintModeScreen.tsx
- │    ├── SmartChatScreen.tsx
- │    ├── CodePlaygroundScreen.tsx
- │    └── LearningHistoryScreen.tsx
- │
- ├── hooks/
- ├── services/
- │    └── ExecutionEngine.ts
- │
- ├── utils/
- └── navigation/
+├── screens/        ErrorExplainerScreen, HintModeScreen, CodePlaygroundScreen,
+│                   SmartChatScreen, LearningHistoryScreen
+├── components/     CodeBlock, FormattedResponse, VoiceButton, SpeakerButton, ModelLoaderWidget
+├── hooks/          useErrorExplainer, useHintMode, useConversation, useHistory,
+│                   useVoiceInput, useTextToSpeech
+├── services/       ModelService (model download and loading), ExecutionEngine (code sandbox)
+├── utils/          prompts, codeParser, codeSamples, storage
+└── navigation/     LearningNavigator (bottom tabs)
 ```
 
 ---
 
-## 🚀 How to Run
+## Run it locally (Android)
 
-### 1️⃣ Install dependencies
-
-```
-npm install
-```
-
-### 2️⃣ Clean Android build
-
-```
-cd android
-./gradlew clean
-cd ..
-```
-
-### 3️⃣ Run the app
-
-```
-npx react-native run-android
-```
-
-Make sure emulator or device is running.
-
----
-
-## 📈 Why This Project Matters
-
-This project demonstrates:
-
-* Real-world React Native architecture
-* AI integration in mobile apps
-* Native module integration
-* Code execution sandboxing
-* Streaming LLM responses
-* TypeScript usage
-* Complex state management
-* UX-focused learning design
-
-## 🎯 Use Case
-
-This app helps:
-
-* Beginner programmers understand errors clearly
-* Students learn step-by-step problem solving
-* Developers test logic instantly
-* Learners practice without internet dependency
-
-Perfect for:
-
-* Offline learning
-* Low connectivity areas
-* Privacy-sensitive environments
-* Cost-efficient AI solutions
-
----
-
-## 📌 Hackathon Focus
-
-Built as a fully on-device AI coding assistant demonstrating:
-
-* Privacy-first AI
-* Zero cloud dependency
-* Real-time local inference
-* Offline developer tooling
-
----
-## Future Improvements
-
-* Monaco editor integration
-* Cloud execution environment
-* Multi-language expansion
-* User authentication
-* Cloud sync history
-* iOS Python execution
-
-👨‍💻 Authors
-BUG SLAYERS
-B.Tech CSE | AI + Full Stack Enthusiasts
-Focused on building intelligent developer tools.
-
-⭐ If you found this interesting, feel free to star the repo!
-
-
-
-
-
-
-
-# RunAnywhere React Native Starter App
-
-A comprehensive starter app demonstrating the capabilities of the [RunAnywhere SDK](https://www.npmjs.com/org/runanywhere) - a privacy-first, on-device AI SDK for React Native.
-
-![RunAnywhere](https://img.shields.io/badge/RunAnywhere-0.16.10-00D9FF)
-![React Native](https://img.shields.io/badge/React%20Native-0.76.5-61DAFB)
-![Platforms](https://img.shields.io/badge/Platforms-iOS%20%7C%20Android-green)
-
-## ✨ Features
-
-This starter app showcases four main capabilities of the RunAnywhere SDK:
-
-### 💬 Chat (LLM Text Generation)
-- Streaming text generation with token-by-token output
-- Performance metrics (tokens/second, total tokens)
-- Cancel generation mid-stream
-- Suggested prompts for quick testing
-- Beautiful chat UI with message bubbles
-
-### 🎤 Speech-to-Text (STT)
-- Real-time audio recording
-- On-device transcription using Whisper models
-- Audio level visualization
-- Transcription history
-- Privacy-first: all processing happens on device
-
-### 🔊 Text-to-Speech (TTS)
-- Neural voice synthesis with Piper TTS
-- Adjustable speech rate (0.5x - 2.0x)
-- Sample texts for quick testing
-- Audio playback controls
-- High-quality, natural-sounding voices
-
-### ✨ Voice Pipeline (Voice Agent)
-- Full voice assistant experience
-- Seamless integration: Speak → Transcribe → Generate → Speak
-- Real-time status updates
-- Conversation history
-- Complete end-to-end voice interaction
-
-## 📦 SDK Packages Used
-
-This app uses three RunAnywhere packages:
-
-| Package | Purpose | NPM |
-|---------|---------|-----|
-| `@runanywhere/core` | Core SDK with infrastructure | [View on NPM](https://www.npmjs.com/package/@runanywhere/core) |
-| `@runanywhere/llamacpp` | LLM backend (LlamaCpp) | [View on NPM](https://www.npmjs.com/package/@runanywhere/llamacpp) |
-| `@runanywhere/onnx` | STT/TTS/VAD backend (ONNX) | [View on NPM](https://www.npmjs.com/package/@runanywhere/onnx) |
-
-## 🚀 Getting Started
-
-### Quick Start
+**Prerequisites:** Node.js 18+, JDK 17, Android Studio with Android SDK 36 and NDK `27.1.12297006`. A physical device is recommended, because the AI model runs slowly on emulators.
 
 ```bash
-# Clone and install
-git clone https://github.com/RunanywhereAI/react-native-starter-app.git
-cd react-native-starter-app
+git clone https://github.com/ananya24s/code_learning_assistant.git
+cd code_learning_assistant
 npm install
-
-# iOS (requires pod install first)
-cd ios && pod install && cd ..
-npx react-native run-ios
-
-# Android (no additional setup needed)
-npx react-native run-android
-```
-
-### Prerequisites
-
-- **Node.js** 18 or higher
-- **React Native CLI** development environment ([setup guide](https://reactnative.dev/docs/environment-setup))
-- **iOS:** Xcode 14+, CocoaPods, macOS
-- **Android:** 
-  - Android Studio
-  - JDK 17+
-  - Android SDK 36 (compileSdk)
-  - NDK 27.1.12297006 (install via Android Studio → SDK Manager → SDK Tools → NDK)
-  - Build Tools 36.0.0
-- **Physical device recommended** for best performance (AI models run slowly on simulators)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/RunanywhereAI/react-native-starter-app.git
-   cd react-native-starter-app
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-   > **Note:** This runs `patch-package` automatically via postinstall to apply necessary compatibility fixes.
-
-3. **iOS Setup**
-   ```bash
-   cd ios
-   pod install
-   cd ..
-   ```
-   > **Known Issue (RN 0.83):** The `@runanywhere` SDK packages use `podspecPath` in their React Native config, which the RN 0.83 CLI no longer allows. To work around this, `automaticPodsInstallation` is set to `false` in `react-native.config.js`. This means you **must always run `pod install` manually** (as shown above) before building for iOS. You may see warnings about `podspecPath` when running `run-ios` — these are harmless and can be ignored. This will be fixed in a future SDK release.
-
-4. **Android Setup** (verify your environment)
-   
-   No additional setup is needed if you have Android Studio installed with the required SDK components. To verify:
-   
-   ```bash
-   # Check that ANDROID_HOME is set (should point to your Android SDK)
-   echo $ANDROID_HOME
-   # Expected: /Users/<username>/Library/Android/sdk (macOS) or similar
-   
-   # Verify ADB is available
-   adb --version
-   
-   # Check installed NDK versions (need 27.1.12297006)
-   ls $ANDROID_HOME/ndk/
-   ```
-   
-   If NDK 27 is missing, install it via Android Studio:
-   - Open Android Studio → Settings → SDK Manager → SDK Tools tab
-   - Check "Show Package Details" → expand "NDK (Side by side)"
-   - Select version **27.1.12297006** and click Apply
-
-5. **Run the app**
-
-   **For iOS:**
-   ```bash
-   npx react-native run-ios
-   ```
-
-   **For Android:**
-   ```bash
-   npx react-native run-android
-   ```
-
-### Running with Two Terminals (Recommended)
-
-For better control and visibility of logs, run Metro bundler and the app build in separate terminals:
-
-**Terminal 1 - Start Metro Bundler:**
-```bash
-cd react-native-starter-app
 npx react-native start
 ```
 
-Wait until you see "Dev server ready", then in a second terminal:
+In a second terminal:
 
-**Terminal 2 - Build & Run the App:**
 ```bash
-cd react-native-starter-app
-
-# For iOS
-npx react-native run-ios
-
-# For Android
 npx react-native run-android
 ```
 
-> **Note:** The first Android build takes 5-10 minutes as it compiles native C++ code. Subsequent builds are much faster.
+On first launch, open **Learning** and tap the button to download the AI model. This needs internet once. After that, the app works offline.
 
-### Running on Physical Android Device
+## Roadmap
 
-When running on a physical Android device, you need to set up port forwarding for the Metro bundler:
+- Hindi and regional-language voice explanations
+- More languages in the Playground (Python, C++, Java)
+- Practice quizzes built from each learner's weak topics
+- Hint difficulty that adapts to the learner's level
+- Teacher dashboard and offline content packs for classrooms
 
-```bash
-# Connect your device via USB and verify it's detected
-adb devices
+## Team Bug Slayers
 
-# Set up port forwarding (required for each USB session)
-adb reverse tcp:8081 tcp:8081
+- Ananya Singh
+- Madhavi Singh
+- Navya Bansal
+- Naman Talwar
 
-# Start Metro bundler in one terminal
-npx react-native start
+## Acknowledgements
 
-# Run the app in another terminal
-npx react-native run-android
-```
-
-> **Tip:** If you see "Could not connect to development server", run `adb reverse tcp:8081 tcp:8081` again.
-
-### iOS Permissions
-
-The app requires microphone access. Permissions are already configured in `ios/RunAnywhereStarter/Info.plist`:
-
-```xml
-<key>NSMicrophoneUsageDescription</key>
-<string>This app needs microphone access for speech recognition and voice agent features</string>
-<key>NSSpeechRecognitionUsageDescription</key>
-<string>This app uses on-device speech recognition to transcribe your voice</string>
-```
-
-### Android Permissions
-
-Required permissions are configured in `android/app/src/main/AndroidManifest.xml`:
-
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.RECORD_AUDIO" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-```
-
-## 🏗️ Architecture
-
-```
-src/
-├── App.tsx                      # Main app entry, SDK initialization
-├── theme/
-│   └── colors.ts               # Color palette and theme
-├── services/
-│   └── ModelService.tsx        # Model management (download, load, state)
-├── components/
-│   ├── FeatureCard.tsx         # Home screen feature cards
-│   ├── ModelLoaderWidget.tsx   # Model download/load UI
-│   ├── ChatMessageBubble.tsx   # Chat message UI
-│   └── AudioVisualizer.tsx     # Audio level visualization
-├── screens/
-│   ├── HomeScreen.tsx          # Main navigation screen
-│   ├── ChatScreen.tsx          # LLM chat interface
-│   ├── SpeechToTextScreen.tsx  # STT interface
-│   ├── TextToSpeechScreen.tsx  # TTS interface
-│   └── VoicePipelineScreen.tsx # Voice agent interface
-└── navigation/
-    └── types.ts                # Navigation type definitions
-```
-
-## 🤖 Default Models
-
-The app comes preconfigured with these models:
-
-| Model | Purpose | Size | Source |
-|-------|---------|------|--------|
-| SmolLM2 360M Q8_0 | Text generation | ~400MB | HuggingFace |
-| Sherpa ONNX Whisper Tiny EN | Speech recognition | ~80MB | RunAnywhere |
-| Piper TTS (US English) | Voice synthesis | ~100MB | RunAnywhere |
-
-## 🎨 Customization
-
-### Using Different Models
-
-You can modify `src/services/ModelService.tsx` to use different models:
-
-```typescript
-// LLM Model - Example with a larger model
-await LlamaCpp.addModel({
-  id: 'qwen2-1.5b-q4',
-  name: 'Qwen2 1.5B Q4',
-  url: 'https://huggingface.co/...',
-  memoryRequirement: 1500000000,
-});
-
-// STT Model - Example with multilingual support
-await Onnx.addModel({
-  id: 'whisper-small-multi',
-  name: 'Whisper Small Multilingual',
-  url: 'https://...',
-  modality: ModelCategory.speechRecognition,
-});
-```
-
-### Theming
-
-The app uses a custom dark theme defined in `src/theme/colors.ts`. You can customize:
-
-```typescript
-export const AppColors = {
-  primaryDark: '#0A0E1A',
-  accentCyan: '#00D9FF',
-  accentViolet: '#8B5CF6',
-  // ... more colors
-};
-```
-
-## 🔒 Privacy
-
-All AI processing happens **on-device**. No data is sent to external servers. The models are downloaded once and stored locally on the device.
-
-- ✅ No internet required after model download
-- ✅ All inference runs locally
-- ✅ Your conversations never leave your device
-- ✅ No API keys or cloud services needed
-
-## 🐛 Troubleshooting
-
-### "Could not connect to development server" (Android)
-This happens on physical Android devices because they can't reach `localhost` on your computer.
-
-```bash
-# Set up port forwarding
-adb reverse tcp:8081 tcp:8081
-
-# Verify Metro is running
-curl http://localhost:8081/status  # Should return "packager-status:running"
-```
-
-### CMake Error: "add_subdirectory given source which is not an existing directory"
-This happens when codegen hasn't run yet. Simply run the build again:
-
-```bash
-cd android && ./gradlew assembleDebug
-```
-
-The second run will succeed as codegen completes.
-
-### Models not downloading
-- Check your internet connection
-- Ensure sufficient storage space (models can be 100MB-1GB)
-- Check iOS/Android permissions
-- Clear app data and try again
-
-### Microphone not working
-- Grant microphone permission in device settings
-- Restart the app after granting permission
-- On Android, check if permission is granted in AndroidManifest.xml
-
-### Low performance
-- Smaller models (like SmolLM2 360M) work better on mobile devices
-- Close other apps to free up memory
-- Use quantized models (Q4/Q8) for better performance
-- Ensure you're running on a physical device (simulators are slow)
-
-### Build errors
-- Clear cache: `cd android && ./gradlew clean` or `cd ios && rm -rf Pods Podfile.lock`
-- Reinstall dependencies: `rm -rf node_modules && npm install`
-- For iOS: `cd ios && pod install --repo-update`
-- For Android: Delete `android/app/build` and `android/.gradle` folders, then rebuild
-
-### Android NDK not found
-If you see errors about NDK not found:
-```bash
-# Check if NDK 27 is installed
-ls ~/Library/Android/sdk/ndk/
-
-# If missing, install via Android Studio SDK Manager or:
-sdkmanager "ndk;27.1.12297006"
-```
-
-### Android SDK location not found
-Ensure `local.properties` exists in the `android/` folder with your SDK path:
-```properties
-sdk.dir=/Users/<username>/Library/Android/sdk
-```
-This file is auto-generated when you open the project in Android Studio.
-
-### Patches not applied
-If you see build errors related to `react-native-nitro-modules`, ensure patches are applied:
-
-```bash
-npx patch-package
-```
-
-This should run automatically via `postinstall`, but you can run it manually if needed.
-
-## 📚 Documentation
-
-- [RunAnywhere SDK Documentation](https://docs.runanywhere.ai)
-- [React Native Documentation](https://reactnative.dev)
-- [API Reference](https://docs.runanywhere.ai/api)
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-## 📄 License
-
-This starter app is provided under the MIT License. The RunAnywhere SDK is licensed under the [RunAnywhere License](https://runanywhere.ai/license).
-
-For commercial licensing inquiries, contact: san@runanywhere.ai
-
-## 🆘 Support
-
-- **GitHub Issues**: [Report bugs](https://github.com/RunanywhereAI/runanywhere-sdks/issues)
-- **Email**: san@runanywhere.ai
-- **Documentation**: [runanywhere.ai](https://runanywhere.ai)
-- **Discord**: [Join our community](https://discord.gg/runanywhere)
-
-## 🎯 Next Steps
-
-1. **Explore the code**: Check out each screen to understand how the SDK works
-2. **Try different models**: Swap in your own models to see what works best
-3. **Build your app**: Use this as a foundation for your own AI-powered app
-4. **Share feedback**: Let us know what you think and what features you'd like to see
-
-## ⭐ Acknowledgments
-
-Built with:
-- [React Native](https://reactnative.dev)
-- [React Navigation](https://reactnavigation.org)
-- [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated)
-- [React Native Linear Gradient](https://github.com/react-native-linear-gradient/react-native-linear-gradient)
-
-Special thanks to the open-source community and the RunAnywhere team!
-
----
-
-Made with ❤️ by the RunAnywhere team
-=======
-# code_learning_assistant
->>>>>>> 3fe958c854a1e749939b0a4077d1addfd6e409e0
+This app is built on the [RunAnywhere SDK](https://www.npmjs.com/org/runanywhere) and started from its [React Native starter app](https://github.com/RunanywhereAI/react-native-starter-app), which provided the SDK setup, model loading and voice plumbing. The learning features (Error Helper, Hint Mode, Code Playground, Ask AI and Learning History) are our own work.

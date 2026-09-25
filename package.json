@@ -1,7 +1,7 @@
 {
-  "name": "runanywhere-starter-app",
+  "name": "code-learning-assistant",
   "version": "1.0.0",
-  "description": "A comprehensive starter app demonstrating RunAnywhere SDK capabilities - on-device AI for React Native",
+  "description": "Offline AI coding tutor for beginners, powered by on-device AI (RunAnywhere SDK)",
   "main": "index.js",
   "scripts": {
     "android": "react-native run-android",

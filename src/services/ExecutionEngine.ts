@@ -10,7 +10,7 @@
 
 import { NativeModules } from 'react-native';
 
-const { PythonExecutor } = NativeModules; // Created by Person 3
+const { PythonExecutor } = NativeModules;
 
 interface ExecutionResult {
   success: boolean;
